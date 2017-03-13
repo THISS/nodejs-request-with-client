@@ -1,8 +1,6 @@
-// import the https module from nodejs
 let https = require('https');
 
-
-function getAndPrintHTML (options) {
+module.exports = function getHTML (options, callback) {
 
   /* Add your code here */
   let dataString = '';
@@ -22,21 +20,12 @@ function getAndPrintHTML (options) {
     });
 
     response.on('end', () => {
-      console.log(dataString);
-      console.log('The string is the best buffer as that is what all HTML transmits in.')
+      // use our callback function to pass the html data to
+      callback(dataString);
     });
 
     response.on('error', (err) => {
       console.log(`Error: ${err}`);
     });
   });
-
-}
-
-var requestOptions = {
-  host: 'sytantris.github.io',
-  path: '/http-examples/step3.html'
 };
-
-// Call our function
-getAndPrintHTML(requestOptions);
