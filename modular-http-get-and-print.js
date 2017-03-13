@@ -11,15 +11,17 @@ function getAndPrintHTML (options) {
     // Set the encoding to read the data with the unicode format utf8 which is the encoding for the web default
     response.setEncoding('utf8');
 
-    // When we hear the event 'data' emitted do our arrow function callback
-    response.on('data', (chunk) => {
-      dataString += chunk;
-    });
+    response.pipe(console.log);
 
-    response.on('end', () => {
-      console.log(dataString);
-      console.log('The string is the best buffer as that is what all HTML transmits in.')
-    });
+    // When we hear the event 'data' emitted do our arrow function callback
+    // response.on('data', (chunk) => {
+    //   dataString += chunk;
+    // });
+
+    // response.on('end', () => {
+    //   console.log(dataString);
+    //   console.log('The string is the best buffer as that is what all HTML transmits in.')
+    // });
 
     response.on('error', (err) => {
       console.log(`Error: ${err}`);
