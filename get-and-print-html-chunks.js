@@ -1,5 +1,5 @@
 // import the https module from nodejs
-let https = request('https');
+let https = require('https');
 
 // Create a function that makes a request to the web and prints the results
 function getAndPrintHTMLChunks() {
@@ -30,3 +30,5 @@ function getAndPrintHTMLChunks() {
   });
 
 }
+
+getAndPrintHTMLChunks();
