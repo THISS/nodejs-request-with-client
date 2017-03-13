@@ -12,3 +12,5 @@ function printHTML (html) {
 }
 
 getHtml(requestOptions, printHTML);
+console.log("it is preferable to have the require('https') in the module that " +
+  "is using the functionality so that you don't need to require https it every time you require the functions use");
