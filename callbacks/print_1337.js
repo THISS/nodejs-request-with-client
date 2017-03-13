@@ -10,10 +10,11 @@ let dictionary = {a: '4', e: '3', l: '1', o: '0', s: '5', t: '7', 'ck': 'x', 'er
 
 // if the letter is in the dictionary then convert it
 function leetspeak(letter) {
-  if(letter in dictionary) {
-    return dictionary[letter];
-  }
-  return letter;
+  // if(letter in dictionary) {
+  //   return dictionary[letter];
+  // }
+  // return letter;
+  return (letter in dictionary)? dictionary[letter] : letter;
 }
 
 // Obfuscate with leetspeak
