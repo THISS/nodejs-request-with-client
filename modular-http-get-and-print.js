@@ -11,7 +11,10 @@ function getAndPrintHTML (options) {
     // Set the encoding to read the data with the unicode format utf8 which is the encoding for the web default
     response.setEncoding('utf8');
 
-    response.pipe(console.log);
+    // We need to pipe to process.stdout because piping is different to normal callbacks
+    // - I need to read into it a bit to understand
+    response.pipe(process.stdout);
+    console.log('now I am using the pipe method to print to stdout');
 
     // When we hear the event 'data' emitted do our arrow function callback
     // response.on('data', (chunk) => {
